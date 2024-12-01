@@ -1,0 +1,1 @@
+2024 repo for attempts at advent of code in python
