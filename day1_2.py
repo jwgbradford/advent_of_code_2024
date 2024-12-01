@@ -57,5 +57,5 @@ def find_similarity(data :list) -> int:
         similarity += list_1[i] * list_2.count(list_1[i])
     return similarity
 
-my_data = get_data('test1.txt')
+my_data = get_data('input1.txt')
 print(find_similarity(my_data))
