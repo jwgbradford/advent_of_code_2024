@@ -6,6 +6,7 @@ def read_file(file : str) -> list:
 def get_data(file : str) -> list[list]:
     file_data = read_file(file)
     data_list = file_data.split("\n")
+    del data_list[-1]
     data_list_split = split_list(data_list)
     return data_list_split
 
@@ -49,5 +50,5 @@ def find_dist(data : list[list]) -> int:
         dist += abs(list_1[i] - list_2[i])
     return dist
 
-my_data = get_data('test1.txt')
+my_data = get_data('input1.txt')
 print(find_dist(my_data))
