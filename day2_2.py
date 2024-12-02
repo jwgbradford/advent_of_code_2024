@@ -46,5 +46,5 @@ def problem_dampener(data : list[int]) -> bool:
             return True
     return False
 
-my_data = get_data('test2.txt')
+my_data = get_data('input2.txt')
 print(count_safe(my_data))
