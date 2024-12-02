@@ -34,7 +34,10 @@ def count_safe(data : list[list[int]]) -> int:
     return safe_count
 
 def check_safe(data : list[int]) -> bool:
-    direction : int = (data[0] - data[1]) / abs(data[0] - data[1])
+    if (data[0] - data[1]) == 0:
+        return False
+    else:
+        direction : int = (data[0] - data[1]) / abs(data[0] - data[1])
     for index in range(len(data)):
         if index == 0:
             pass
@@ -50,5 +53,5 @@ def check_safe(data : list[int]) -> bool:
             return False
     return True
 
-my_data = get_data('test2.txt')
+my_data = get_data('input2.txt')
 print(count_safe(my_data))
