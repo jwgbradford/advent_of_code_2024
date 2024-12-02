@@ -20,10 +20,8 @@ def check_safe(data : list[int]) -> bool:
         return False
     else:
         direction : int = (data[0] - data[1]) / abs(data[0] - data[1])
-    for index in range(len(data)):
-        if index == 0:
-            pass
-        elif data[index-1] - data[index] == 0:
+    for index in range(1, len(data)):
+        if data[index-1] - data[index] == 0:
             return False
         elif ( 
             (data[index-1] - data[index]) / abs(data[index-1] - data[index]) == direction
@@ -46,5 +44,5 @@ def problem_dampener(data : list[int]) -> bool:
             return True
     return False
 
-my_data = get_data('input2.txt')
+my_data = get_data('test2.txt')
 print(count_safe(my_data))
