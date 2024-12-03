@@ -14,5 +14,5 @@ def calc_mul(data : str) -> int:
         mul_calc += int(calc[0]) * int(calc[1])
     print(mul_calc)
 
-my_data = read_file('test3.txt')
+my_data = read_file('input3.txt')
 calc_mul(my_data)
