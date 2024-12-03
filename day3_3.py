@@ -9,7 +9,7 @@ There are two new instructions you'll need to handle:
 import re
 from aoc_common import read_file
 
-def calc_mul(data : str) -> int:
+def calc_mul(data : str) -> None:
     # you have a problem, you use regex
     mul_list = re.findall("mul\\(([0-9]+),([0-9]+)\\)", data)
     # now you have two problems
@@ -18,11 +18,12 @@ def calc_mul(data : str) -> int:
         mul_calc += int(calc[0]) * int(calc[1])
     print(mul_calc)
 
-def remove_disabled(data : str) -> str:
-    new_calc = re.sub("don't().*?do()", "", data)
-    print(new_calc)
+def remove_disabled(data : str) -> None:
+    # wrong, (still) too high
+    new_calc = re.sub("\\n", "", data)
+    new_calc = re.sub("don't().*?do()", "", new_calc)
     return new_calc
 
-my_data = read_file('test3_1.txt')
+my_data = read_file('input3.txt')
 my_data = remove_disabled(my_data)
 calc_mul(my_data)
