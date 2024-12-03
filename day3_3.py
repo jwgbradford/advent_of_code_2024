@@ -21,7 +21,7 @@ def calc_mul(data : str) -> None:
 def remove_disabled(data : str) -> None:
     # wrong, (still) too high
     new_calc = re.sub("\\n", "", data)
-    new_calc = re.sub("don't().*?do()", "", new_calc)
+    new_calc = re.sub("don't\\(\\).*?do\\(\\)", "", new_calc)
     return new_calc
 
 my_data = read_file('input3.txt')
