@@ -39,4 +39,4 @@ def run(file_name):
     print(count_xmas(file_name))
 
 if __name__ == "__main__":
-    run("test4.txt")
+    run("input4.txt")
