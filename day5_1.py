@@ -48,4 +48,4 @@ def run(file_name : str) -> None:
     separate_data(file_name)
 
 if __name__ == "__main__":
-    run("test5.txt")
+    run("input5.txt")
