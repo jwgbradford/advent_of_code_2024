@@ -38,7 +38,6 @@ def check_correct(rules, prt_order) -> list[list[int]]:
     return wrong_pages
 
 def sort_pages(update : list[int], rules : list[(int, int)]) -> list[int]:
-    print(update)
     for index in range(len(update) - 1):
         correct_order : bool = False
         for rule in rules:
@@ -71,4 +70,4 @@ def run(file_name : str) -> None:
     separate_data(file_name)
 
 if __name__ == "__main__":
-    run("test5.txt")
+    run("input5.txt")
