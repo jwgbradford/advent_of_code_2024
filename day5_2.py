@@ -37,8 +37,8 @@ def check_correct(rules, prt_order) -> list[list[int]]:
             wrong_pages.append(printing)
     return wrong_pages
 
-def sort_pages(update : list[int], rules : list[(int, int)]) -> list[int]:
-    for index in range(len(update) - 1):
+def sort_pages(start_loc : int, update : list[int], rules : list[(int, int)]) -> list[int]:
+    for index in range(start_loc, len(update) - 1):
         correct_order : bool = False
         for rule in rules:
             if (update[index] == rule[0] 
@@ -48,13 +48,16 @@ def sort_pages(update : list[int], rules : list[(int, int)]) -> list[int]:
                 correct_order = True
         if not correct_order:
             update[index], update[index + 1] = update[index + 1], update[index]
-            update = sort_pages(update, rules)
+            if index > 0:
+                update = sort_pages(index - 1, update, rules)
+            else:
+                update = sort_pages(index, update, rules)
     return update
 
 def reorder_pages(rules : list[(int, int)], wrong_order : list[int]) -> int:
     page_count : int = 0
     for printing in wrong_order:
-        printing = sort_pages(printing, rules)
+        printing = sort_pages(0, printing, rules)
         page_count += printing[len(printing)//2]
     return page_count
 
