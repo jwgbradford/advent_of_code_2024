@@ -76,11 +76,11 @@ class LabMap():
             if self.guard_pos + self.guard_dir not in visited_obs:
                 visited_obs.append(self.guard_pos + self.guard_dir)
             self.guard_dir = self.turn_guard(self.guard_dir)
-        print(len(pos_obs)) # too low
+        print(len(pos_obs)) # (still) too low
 
 def run(file_name):
     my_map = LabMap(file_name)
     my_map.move_guard()
 
 if __name__ == "__main__":
-    run("test6.txt")
+    run("input6.txt")
