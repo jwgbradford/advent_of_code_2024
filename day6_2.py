@@ -52,7 +52,11 @@ class LabMap():
             temp_pos += temp_dir
             if temp_pos in self.boundary:
                 return None
-        if temp_pos + temp_dir in known_obs:
+        if (
+                temp_pos + temp_dir in known_obs
+                and
+                self.lab_map[self.guard_pos + self.guard_dir] != "#"
+            ):
             temp_obs = self.guard_pos + self.guard_dir
             return temp_obs
         else:
@@ -64,11 +68,11 @@ class LabMap():
         while self.guard_pos not in self.boundary:
             while self.lab_map[self.guard_pos + self.guard_dir] != "#":
                 self.guard_pos += self.guard_dir
+                if self.guard_pos in self.boundary:
+                    break
                 temp_obs = self.check_pos_obs(visited_obs)
                 if temp_obs:
                     pos_obs.append(temp_obs)
-                if self.guard_pos in self.boundary:
-                    break
             if self.guard_pos + self.guard_dir not in visited_obs:
                 visited_obs.append(self.guard_pos + self.guard_dir)
             self.guard_dir = self.turn_guard(self.guard_dir)
@@ -79,4 +83,4 @@ def run(file_name):
     my_map.move_guard()
 
 if __name__ == "__main__":
-    run("input6.txt")
+    run("test6.txt")
