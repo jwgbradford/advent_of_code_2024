@@ -62,4 +62,4 @@ def run(file_name):
     my_map.move_guard()
 
 if __name__ == "__main__":
-    run("test6.txt")
+    run("input6.txt")
